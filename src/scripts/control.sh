@@ -151,13 +151,13 @@ case $CMD in
   initdb)
     update_daemon_config ${CONF_DIR}
     log "Initializing the Airflow database..."
-    su -s /bin/bash - airflow -c "CONF_DIR=$CONF_DIR exec ${AIRFLOW_DIR}/bin/airflow-cm.sh initdb"
+    su -s /bin/bash - airflow -c "CONF_DIR=$CONF_DIR exec ${AIRFLOW_DIR}/bin/airflow-cm.sh db init"
     ;;
 
   upgradedb)
     update_daemon_config ${CONF_DIR}
     log "Upgrading the Airflow database..."
-    su -s /bin/bash - airflow -c "CONF_DIR=$CONF_DIR exec ${AIRFLOW_DIR}/bin/airflow-cm.sh upgradedb"
+    su -s /bin/bash - airflow -c "CONF_DIR=$CONF_DIR exec ${AIRFLOW_DIR}/bin/airflow-cm.sh db upgrade"
     ;;
 
   *)
